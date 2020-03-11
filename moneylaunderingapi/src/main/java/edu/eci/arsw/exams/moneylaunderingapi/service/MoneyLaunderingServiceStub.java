@@ -20,7 +20,8 @@ public class MoneyLaunderingServiceStub implements MoneyLaunderingService {
     }
     @Override
     public void updateAccountStatus(SuspectAccount suspectAccount) {
-        //TODO
+        SuspectAccount account=getAccountStatus(suspectAccount.getAccountId());
+        account.setAmountOfSmallTransactions(suspectAccount.getAmountOfSmallTransactions());
     }
 
     @Override

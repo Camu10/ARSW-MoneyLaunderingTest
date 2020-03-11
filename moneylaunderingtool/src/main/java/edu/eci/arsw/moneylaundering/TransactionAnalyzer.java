@@ -17,16 +17,7 @@ public class TransactionAnalyzer {
 
     public synchronized void addTransaction(Transaction transaction)
     {
-        synchronized (MoneyLaundering.monitor){
-            if(MoneyLaundering.pausa){
-                try {
-                    MoneyLaundering.monitor.wait();
 
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
         if(transaction.amount < LAUNDERING_LIMIT_AMOUNT)
         {
             String destinationAccount = transaction.destinationAccount;

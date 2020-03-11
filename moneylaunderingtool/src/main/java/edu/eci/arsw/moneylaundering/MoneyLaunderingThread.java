@@ -23,9 +23,19 @@ public class MoneyLaunderingThread extends Thread{
 
             for(Transaction transaction : transactions)
             {
+                synchronized (MoneyLaundering.monitor){
+                    if(MoneyLaundering.pausa){
+                        try {
+                            MoneyLaundering.monitor.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
                 transactionAnalyzer.addTransaction(transaction);
             }
             MoneyLaundering.amountOfFilesProcessed.incrementAndGet();
         }
+        MoneyLaundering.hilosVivos.decrementAndGet();
     }
 }

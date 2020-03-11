@@ -20,6 +20,8 @@ public class MoneyLaundering
     public static AtomicInteger amountOfFilesProcessed;
     public static boolean pausa;
     public static Object monitor = new Object();
+    public static int numHilos = 5;
+    public static AtomicInteger hilosVivos = new AtomicInteger(numHilos);
 
     public MoneyLaundering()
     {
@@ -35,14 +37,15 @@ public class MoneyLaundering
         List<File> transactionFiles = getTransactionFileList();
         amountOfFilesTotal = transactionFiles.size();
 
-        int step = amountOfFilesTotal/5 , sobrante = amountOfFilesTotal%5,ini=0,fin=step;
+        int step = amountOfFilesTotal/numHilos , sobrante = amountOfFilesTotal%numHilos,ini=0,fin=step;
 
 
         List<MoneyLaunderingThread> lista = new ArrayList<>();
 
-        for(int i=0;i<5;i++){
-            if(i == 4) {
+        for(int i=0;i<numHilos;i++){
+            if(i == numHilos-1) {
                 fin+=sobrante;
+
             }
             List<File> aux = new ArrayList<>();
             for(int j = ini;j< fin ;j++){
@@ -89,20 +92,20 @@ public class MoneyLaundering
         return csvFiles;
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws InterruptedException {
         MoneyLaundering moneyLaundering = new MoneyLaundering();
-        Thread processingThread = new Thread(() -> moneyLaundering.processTransactionData());
-        processingThread.start();
+        moneyLaundering.processTransactionData();
+
 
         //MoneyLaunderingThread a1 = new MoneyLaunderingThread();
-        while(true)
+        while(hilosVivos.get()>0)
         {
+            System.out.println("Los hilos estan "+ ((pausa)?"detenidos":"activos"));
             Scanner scanner = new Scanner(System.in);
             String line = scanner.nextLine();
             if(line.contains("exit"))
                 break;
-            if (line.equals("")){
+            if (!pausa){
                 pausa = true;
                 String message = "Processed %d out of %d files.\nFound %d suspect accounts:\n%s";
                 List<String> offendingAccounts = moneyLaundering.getOffendingAccounts();
@@ -115,14 +118,13 @@ public class MoneyLaundering
                     monitor.notifyAll();
                 }
             }
-            if(!pausa){
-            String message = "Processed %d out of %d files.\nFound %d suspect accounts:\n%s";
-            List<String> offendingAccounts = moneyLaundering.getOffendingAccounts();
-            String suspectAccounts = offendingAccounts.stream().reduce("", (s1, s2)-> s1 + "\n"+s2);
-            message = String.format(message, moneyLaundering.amountOfFilesProcessed.get(), moneyLaundering.amountOfFilesTotal, offendingAccounts.size(), suspectAccounts);
-            System.out.println(message);}
 
         }
+        String message = "Processed %d out of %d files.\nFound %d suspect accounts:\n%s";
+        List<String> offendingAccounts = moneyLaundering.getOffendingAccounts();
+        String suspectAccounts = offendingAccounts.stream().reduce("", (s1, s2)-> s1 + "\n"+s2);
+        message = String.format(message, moneyLaundering.amountOfFilesProcessed.get(), moneyLaundering.amountOfFilesTotal, offendingAccounts.size(), suspectAccounts);
+        System.out.println(message);
         System.exit(0);
 
     }

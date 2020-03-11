@@ -15,6 +15,7 @@ import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 @RestController
 public class MoneyLaunderingController
@@ -48,7 +49,7 @@ public class MoneyLaunderingController
     }
 
 
-    @RequestMapping( method = POST )
+    @RequestMapping(value = "/fraud-bank-accounts", method = POST )
     public ResponseEntity<?> postSuspend(@RequestBody SuspectAccount fp)
     {
         try{
@@ -58,5 +59,14 @@ public class MoneyLaunderingController
             return new ResponseEntity<>("ERROR 500",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    //TODO
+
+    @RequestMapping(value = "/fraud-bank-account/{accountId}", method = PUT)
+    public ResponseEntity<?> updateAccount(@RequestBody SuspectAccount suspectAccount) {
+        try {
+            moneyLaunderingService.updateAccountStatus(suspectAccount);
+            return new ResponseEntity<>( HttpStatus.ACCEPTED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+    }
 }
