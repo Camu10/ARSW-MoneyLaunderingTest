@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="674f53c4-1cb1-4a4c-99ae-a9d231d49380" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../moneylaunderingapi/src/main/java/edu/eci/arsw/exams/moneylaunderingapi/MoneyLaunderingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../moneylaunderingapi/src/main/java/edu/eci/arsw/exams/moneylaunderingapi/MoneyLaunderingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../moneylaunderingapi/src/main/java/edu/eci/arsw/exams/moneylaunderingapi/service/MoneyLaunderingServiceStub.java" beforeDir="false" afterPath="$PROJECT_DIR$/../moneylaunderingapi/src/main/java/edu/eci/arsw/exams/moneylaunderingapi/service/MoneyLaunderingServiceStub.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/moneylaundering/MoneyLaundering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/moneylaundering/MoneyLaundering.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/moneylaundering/MoneyLaunderingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/moneylaundering/MoneyLaunderingThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/moneylaundering/TransactionAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arsw/moneylaundering/TransactionAnalyzer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +84,7 @@
       <workItem from="1583899835028" duration="6710000" />
       <workItem from="1583906680045" duration="1656000" />
       <workItem from="1583908522667" duration="2440000" />
+      <workItem from="1583981964084" duration="1032000" />
     </task>
     <servers />
   </component>
@@ -106,10 +101,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1583908553202">
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser" timestamp="1583982273929">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1583908553202" />
+    <state x="488" y="73" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1583982273929" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1583982292673">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1583982292673" />
     <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1583910994484">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -126,10 +125,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583910994484" />
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1583908524799">
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1583982000370">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583908524799" />
+    <state x="379" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1583982000370" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1583900342086">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
